@@ -216,7 +216,7 @@
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
+				"type": "bytes32"
 			}
 		],
 		"payable": false,
@@ -324,7 +324,7 @@
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
+				"type": "bytes32"
 			}
 		],
 		"payable": false,
@@ -454,6 +454,20 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_kycdata",
+				"type": "bytes32"
+			}
+		],
+		"name": "uploadKYC",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "getOwnerCount",
@@ -476,20 +490,6 @@
 			}
 		],
 		"name": "voteInvalidKYC",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_kycdata",
-				"type": "string"
-			}
-		],
-		"name": "uploadKYC",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
