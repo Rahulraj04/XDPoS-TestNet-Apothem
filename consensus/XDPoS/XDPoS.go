@@ -51,13 +51,7 @@ const (
 )
 
 type Masternode struct {
-	Address common.Address
-	Stake   *big.Int
-}
-
-// XDPoS XinFin-DPoS protocol constants.
-var (
-	epochLength = uint64(900) // Default number of blocks after which to checkpoint and reset the pending votes
+	Address common.Address Default number of blocks after which to checkpoint and reset the pending votes
 
 	extraVanity = 32 // Fixed number of extra-data prefix bytes reserved for signer vanity
 	extraSeal   = 65 // Fixed number of extra-data suffix bytes reserved for signer seal
@@ -75,6 +69,12 @@ var (
 // prevent engine specific errors from being referenced in the remainder of the
 // codebase, inherently breaking if the engine is swapped out. Please put common
 // error types into the consensus package.
+	Stake   *big.Int
+}
+
+// XDPoS XinFin-DPoS protocol constants.
+var (
+	epochLength = uint64(900) //
 var (
 	// errUnknownBlock is returned when the list of signers is requested for a block
 	// that is not part of the local blockchain.
@@ -923,7 +923,7 @@ func (c *XDPoS) Seal(chain consensus.ChainReader, block *types.Block, stop <-cha
 				if limit := uint64(2); number < limit || seen > number-limit {
 					// Only take into account the non-epoch blocks
 					if number%c.config.Epoch != 0 {
-						log.Info("Length of master", "len(masternodes)", len(masternodes), "number", number, "limit", limit, "seen", seen, "recent", recent.String(), "snap.Recents", snap.Recents)
+						log.Info("Length of masters", "len(masternodes)", len(masternodes), "number", number, "limit", limit, "seen", seen, "recent", recent.String(), "snap.Recents", snap.Recents)
 						log.Info("Signed recently, must wait for others")
 						<-stop
 						return nil, nil
